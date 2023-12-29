@@ -8,6 +8,8 @@
     use App\Http\Controllers\Backend\Setup\AssignSubjectController;
 
     use App\Http\Controllers\Backend\Setup\SchoolSubjectController;
+
+    use App\Http\Controllers\Backend\Employee\EmployeeRegController;
     use Monolog\Handler\RotatingFileHandler;
 
     /*
@@ -124,6 +126,20 @@
                 Route::post('/reg/update/{student_id}', [StudentRegController::class, 'StudentRegUpdate'])->name('update.student.registration');
 
                 Route::get('/reg/delete/{student_id}', [StudentRegController::class, 'StudentRegDelete'])->name('student.registration.delete');
+            });
+
+            Route::prefix('employees')->group(function () {
+
+                Route::get('reg/employee/view', [EmployeeRegController::class, 'EmployeeView'])->name('employee.registration.view');
+
+                Route::get('reg/employee/add', [EmployeeRegController::class, 'EmployeeAdd'])->name('employee.registration.add');
+
+                Route::post('reg/employee/store', [EmployeeRegController::class, 'EmployeeStore'])->name('store.employee.registration');
+
+                Route::get('reg/employee/edit/{id}', [EmployeeRegController::class, 'EmployeeEdit'])->name('employee.registration.edit');
+
+                Route::post('reg/employee/update/{id}', [EmployeeRegController::class, 'EmployeeUpdate'])->name('update.employee.registration');
+                Route::get('reg/employee/delete/{id}', [EmployeeRegController::class, 'EmployeeDelete'])->name('employee.registration.delete');
             });
         }); // End Middleare Auth Route 
 

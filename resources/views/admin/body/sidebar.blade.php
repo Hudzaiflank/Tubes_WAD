@@ -67,6 +67,20 @@
         </li>
         @endif
       
+        <li class="treeview {{ ($prefix == '/employees')?'active':'' }}">
+          <a href="#">
+            <i data-feather="package"></i> <span>Employee Management</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+        <li  class="{{ ($route == 'employee.registration.view')?'active':'' }}"><a href="{{ route('employee.registration.view') }}"><i class="ti-more"></i>Employee Registration</a></li>
+
+
+            
+          </ul>
+        </li>
       </ul>
     </section>
 	
