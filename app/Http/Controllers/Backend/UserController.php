@@ -30,7 +30,7 @@ class UserController extends Controller
 		]);
 
 
-		dd("hai");
+		
 
 		$data = new User();
 		$code = rand(0000, 9999);
@@ -47,7 +47,7 @@ class UserController extends Controller
 			'alert-type' => 'success'
 		);
 
-		dd("hai");
+		
 
 		return redirect()->route('user.view')->with($notification);
 	}
