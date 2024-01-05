@@ -63,27 +63,7 @@ class StudentRegController extends Controller
 			// $checkYear = StudentYear::find($request->year_id)->name;
 			$student = User::where('usertype', 'Student')->orderBy('id', 'DESC')->first();
 
-			if ($student == null) {
-				$firstReg = 0;
-				$studentId = $firstReg + 1;
-				if ($studentId < 10) {
-					$id_no = '000' . $studentId;
-				} elseif ($studentId < 100) {
-					$id_no = '00' . $studentId;
-				} elseif ($studentId < 1000) {
-					$id_no = '0' . $studentId;
-				}
-			} else {
-				$student = User::where('usertype', 'Student')->orderBy('id', 'DESC')->first()->id;
-				$studentId = $student + 1;
-				if ($studentId < 10) {
-					$id_no = '000' . $studentId;
-				} elseif ($studentId < 100) {
-					$id_no = '00' . $studentId;
-				} elseif ($studentId < 1000) {
-					$id_no = '0' . $studentId;
-				}
-			} // end else 
+
 
 			// $final_id_no = $checkYear . $id_no;
 			$user = new User();
